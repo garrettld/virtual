@@ -2,7 +2,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  TemplateRef,
   computed,
   signal,
   viewChild,
@@ -15,9 +14,7 @@ import {
   getSortedRowModel,
   SortingState,
   FlexRenderDirective,
-  HeaderContext,
   SortDirection,
-  Header,
 } from '@tanstack/angular-table'
 import { makeData, type Person } from './make-data'
 import { JsonPipe } from '@angular/common'
