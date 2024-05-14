@@ -17,13 +17,12 @@ import {
   SortDirection,
 } from '@tanstack/angular-table'
 import { makeData, type Person } from './make-data'
-import { JsonPipe } from '@angular/common'
 
 @Component({
   selector: 'app-root',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FlexRenderDirective, JsonPipe],
+  imports: [FlexRenderDirective],
   template: `
     <p>
       For tables, the basis for the offset of the translate css function is from
