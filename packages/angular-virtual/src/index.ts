@@ -14,6 +14,8 @@ export * from './types'
 
 import {
   signal,
+  inject,
+  DestroyRef,
   computed,
   Signal,
   effect,
@@ -71,9 +73,12 @@ function createVirtualizerBase<
     { allowSignalWrites: true },
   )
 
+  let cleanup: () => void | undefined
   afterNextRender(() => (virtualizer ?? lazyInit())._didMount(), {
     phase: AfterRenderPhase.Read,
   })
+
+  inject(DestroyRef).onDestroy(() => cleanup?.())
 
   return proxyVirtualizer(virtualizerSignal, lazyInit)
 }
